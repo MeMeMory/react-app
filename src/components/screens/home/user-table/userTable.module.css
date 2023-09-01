@@ -1,0 +1,5 @@
+.table_body > div:not(:last-child) {
+	display: flex;
+	width: 100%;
+	border-bottom: 2px solid rgb(129, 111, 99);
+}
