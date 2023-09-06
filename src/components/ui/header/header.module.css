@@ -1,0 +1,56 @@
+.header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	height: 5rem;
+}
+.auth {
+	height: 100%;
+	margin-left: auto;
+	cursor: pointer;
+}
+
+.auth img {
+	width: 100%;
+	height: 100%;
+	filter: drop-shadow(0px 0px 2px rgb(188, 255, 171));
+}
+.title {
+	text-align: center;
+	margin-bottom: 1rem;
+	color: rgb(135, 199, 255);
+}
+
+.form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+.form .btn {
+	font-size: 1.6rem;
+	width: 100%;
+	max-width: 25rem;
+	background: cadetblue;
+	border-radius: 0.4rem;
+	padding: 0.4rem 0.6rem;
+	margin-top: 1rem;
+}
+.input_group {
+	position: relative;
+}
+
+.show {
+	position: absolute;
+	top: 50%;
+	right: 0.5rem;
+	width: 2rem;
+	height: 2rem;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+.show svg {
+	width: 100%;
+	height: 100%;
+}

@@ -1,0 +1,27 @@
+.form_group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	width: 100%;
+	max-width: 25rem;
+}
+.form_group label {
+	color: rgb(135, 199, 255);
+	font-size: 1.6rem;
+}
+.form_group input {
+	background: rgb(129, 111, 99);
+	padding: 0.5rem 1rem;
+	border-radius: 0.3rem;
+	color: aliceblue;
+	transition: all 0.3s ease;
+	border: 2px solid rgb(129, 111, 99);
+}
+.form_group input:focus {
+	border: 2px solid rgb(158, 92, 219);
+}
+
+.error_message {
+	font-size: 1.4rem;
+	color: rgb(177, 7, 7);
+}

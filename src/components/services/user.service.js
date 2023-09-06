@@ -11,4 +11,7 @@ export const UserService = {
 		const respond = await axios.get(`${URL}/${id}`)
 		return respond.data
 	},
+	async createUser(data) {
+		return await axios.post(`${URL}`, data)
+	},
 }

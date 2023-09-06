@@ -1,34 +1,39 @@
+// import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useParams } from 'react-router-dom'
+import InputGroup from '../../ui/input/input'
 import UseUser from './hooks/useUser'
 import styles from './userDetail.module.css'
 
 const UserDetail = () => {
 	const { id } = useParams()
+	// const [queryParams, setQueryParams] = useState({})
+
 	const { data, isLoading } = UseUser(id)
 
-	console.log(data)
 	const {
 		register,
 		handleSubmit,
+		setValue,
 		formState: { errors },
 	} = useForm({
 		mode: 'onChange',
-		defaultValues: {
-			name: data?.name || '',
-			email: data?.email || '',
-			phone: data?.phone || '',
-			username: data?.username || '',
-			city: data?.address?.city || '',
-			street: data?.address?.street || '',
-		},
 	})
 
-	const onSubmit = data => {
-		console.log(data)
-	}
-
 	if (isLoading) return <p>Loading...</p>
+
+	// if (data) {
+	// 	setValue('name', data?.name || '')
+	// 	setValue('email', data?.email || '')
+	// 	setValue('phone', data?.phone || '')
+	// 	setValue('username', data?.username || '')
+	// 	setValue('city', data?.address?.city || '')
+	// 	setValue('street', data?.address?.street || '')
+	// }
+	console.log(data)
+	const onSubmit = formData => {
+		console.log(formData)
+	}
 
 	return (
 		<div>
@@ -39,60 +44,56 @@ const UserDetail = () => {
 				<>
 					<h2>User id - {data.id}</h2>
 					<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-						<div className={styles.form_group}>
-							<label htmlFor='userName'>User name</label>
-							<input
-								id='userName'
-								{...register('name', { required: 'Name is required' })}
-								type='text'
-							/>
-							{errors?.name?.message && (
-								<p className={styles.error_message}> Name is required</p>
-							)}
-						</div>
-						<div className={styles.form_group}>
-							<label htmlFor='userEmail'>User email</label>
-							<input
-								id='userEmail'
-								{...register('email', { required: 'Email is required' })}
-								type='text'
-							/>
-							{errors?.name?.message && (
-								<p className={styles.error_message}> Email is required</p>
-							)}
-						</div>
-						<div className={styles.form_group}>
-							<label htmlFor='userPhone'>User phone</label>
-							<input
-								id='userPhone'
-								{...register('phone', { required: 'Phone is required' })}
-								type='text'
-							/>
-							{errors?.name?.message && (
-								<p className={styles.error_message}> Phone is required</p>
-							)}
-						</div>
-						<div className={styles.form_group}>
-							<label htmlFor='userUsername'>User username</label>
-							<input
-								id='userUsername'
-								{...register('username', { required: 'Username is required' })}
-								type='text'
-								value={data.username}
-							/>
-							{errors?.name?.message && (
-								<p className={styles.error_message}> Username is required</p>
-							)}
-						</div>
-
-						<div className={styles.form_group}>
-							<label htmlFor='userCity'>User city</label>
-							<input id='userCity' {...register('city')} type='text' />
-						</div>
-						<div className={styles.form_group}>
-							<label htmlFor='userStreet'>User street</label>
-							<input id='userStreet' {...register('street')} type='text' />
-						</div>
+						<InputGroup
+							labelName={'User name'}
+							labelFor={'userName'}
+							type={'text'}
+							input={{ ...register('name', { required: 'Name is required' }) }}
+							errors={errors?.name}
+							errorMessage={errors?.name?.message}
+						/>
+						<InputGroup
+							labelName={'User email'}
+							labelFor={'userEmail'}
+							type={'text'}
+							input={{
+								...register('email', { required: 'Email is required' }),
+							}}
+							errors={errors?.email}
+							errorMessage={errors?.email?.message}
+						/>
+						<InputGroup
+							labelName={'User phone'}
+							labelFor={'userPhone'}
+							type={'text'}
+							input={{
+								...register('phone', { required: 'Phone is required' }),
+							}}
+							errors={errors?.phone}
+							errorMessage={errors?.phone?.message}
+						/>
+						<InputGroup
+							labelName={'User username'}
+							labelFor={'userUsername'}
+							type={'text'}
+							input={{
+								...register('username', { required: 'Username is required' }),
+							}}
+							errors={errors?.username}
+							errorMessage={errors?.username?.message}
+						/>
+						<InputGroup
+							labelName={'User city'}
+							labelFor={'userCity'}
+							type={'text'}
+							input={{ ...register('city') }}
+						/>
+						<InputGroup
+							labelName={'User street'}
+							labelFor={'userStreet'}
+							type={'text'}
+							input={{ ...register('street') }}
+						/>
 						<button className={styles.btn}>Submit</button>
 					</form>
 				</>

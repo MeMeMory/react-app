@@ -83,7 +83,6 @@ body {
 	background-color: #131214;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	padding: 3rem 0;
 	letter-spacing: 0.03rem;
 }
 
@@ -111,4 +110,9 @@ body {
 .h2 {
 	font-size: 3rem;
 	color: rgb(239, 239, 241);
+}
+
+main {
+	margin-top: 5rem;
+	padding: 3rem 0;
 }
