@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "allowJs": true,
+    "module": "CommonJS",
+    "skipDefaultLibCheck": true,
+    "alwaysStrict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmitHelpers": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
+    // "baseUrl": "./src",
+    // "paths": {
+    //   "@/layout/*": ["/components/layout/*"],
+    //   "@/ui/*": ["/components/ui/*"],
+    //   "@/screens/*": ["/components/screens/*"],
+    //   "@/assets/*": ["/assets/*"],
+    //   "@/services/*": ["/components/services/*"]
+    //   // "@/*": ["/*"]
+    // }
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.scss"],
+  "exclude": ["node_modules"]
+}
